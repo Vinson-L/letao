@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .parent {
+            width: 200px;
+            height: 200px;
+            /* 绝对定位的子元素只会参照相对定位的父元素 */
+            position: relative;
+            /* 子元素绝对定位脱标了  父元素设置padding无效 */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .box {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 100%;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        ffsdsfd
+        <div class="box"></div>
+    </div>
+</body>
+
+</html>

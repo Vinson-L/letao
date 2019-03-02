@@ -1,0 +1,119 @@
+// 项目里面的页面很多重复样式 需要封装在公共文件里面
+// 1. 定义一些公共变量
+@main-color: #006699;
+
+// 2. 样式初始化 （不需要写那么多有MUI已经写了一些稍微加一点点）
+html {
+    font-size: 26.66667vw;
+}
+
+body {
+    font-size: .14rem;
+}
+
+// 去掉标题默认间距
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+// 去除图片和块级元素3px间隙
+img {
+    vertical-align: middle;
+}
+
+// 3. 一些公共样式 头部底部公共样式  改完了less之后发现样式没出来在去index.less保存一下
+
+
+// 头部属于公共样式 在base.less写
+#header {
+    display: flex;
+    background-color: @main-color;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    // 固定定位了默认没有100%的宽度
+    width: 100%;
+
+    .left {
+        width: .45rem;
+        height: .45rem;
+    }
+
+    .center {
+        flex: 1;
+        text-align: center;
+
+        // line-height: .45rem;
+        h4 {
+            // MUI的h4自带了行高
+            line-height: .45rem;
+            font-weight: normal;
+        }
+    }
+
+    .right {
+        width: .45rem;
+        height: .45rem;
+        text-align: center;
+        line-height: .45rem;
+    }
+}
+
+/* 中间的主体区域的样式 这个每个页面都要放到公共样式中 */
+#main {
+    padding: 45px 0;
+    height: 100vh;
+    position: relative;
+
+    // MUI的区域滚动样式修改  把容器绝对定位改成相对定位 设置高度和main内容一样
+    .mui-scroll-wrapper {
+        // 把默认绝对定位改成相对定位
+        position: relative;
+        // 把这个区域滚动的盒子高度设置为100% 和main的内容一样
+        height: 100%;
+    }
+
+    // swiper的内容滚动样式修改 给父容器高度固定100% 子容器高度auto
+    .swiper-container {
+        height: 100%;
+
+        // 子容器的高度 为auto
+        .swiper-slide {
+            height: auto;
+        }
+    }
+}
+
+/* 底部区域 */
+#footer {
+    background-color: @main-color;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    // 固定定位了默认没有100%的宽度
+    width: 100%;
+
+    a {
+        display: flex;
+        height: .45rem;
+        color: #fff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        // 把默认span行高替换成1
+        span {
+            line-height: 1;
+        }
+
+        &.active {
+            color: orange;
+        }
+    }
+}

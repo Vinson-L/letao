@@ -1,0 +1,68 @@
+/* 引入公共样式 */
+@import 'base.less';
+#main{
+	display:flex;
+	background-color: @border-color;
+	height: 100%;
+	.category-left{
+		width: 0.8rem;
+		position: relative;
+		/* 区域滚动的子容器 现在默认高度没有超过父元素的mui-scroll-wrapper的高度 设置一个超过的高度 */
+		.mui-scroll{
+			/* 设置一个最小高 当内容没有超过这个最小高就生效这个最小高 超过 是超过的高 */
+			min-height: 100.1%;
+		}
+		ul{
+			li{
+				&.active{
+					a{
+						background-color: @border-color;
+					}
+				}
+				a{
+					display: block;
+					height: 0.45rem;
+					line-height: 0.45rem;
+					text-align: center;
+					background-color: #fff;
+					border-bottom: 1px solid @border-color;
+					overflow: hidden;
+				}
+			}
+		}
+	}
+	.category-right{
+		flex:1;		
+		position: relative;
+		display:flex;
+		flex-wrap:wrap;
+		/* 控制多行内容内容的时候  子元素的对齐方式 默认拉伸 不需要拉伸设置 顶部对齐 */
+		/* align-content:flex-start; */
+		/* 注意给right大盒子加padding不会影响绝对定位的子元素 */
+		/* padding: 0.1rem; */
+		/* 区域滚动的子容器 现在默认高度没有超过父元素的mui-scroll-wrapper的高度 设置一个超过的高度 */
+		.mui-scroll{
+			/* 设置一个最小高 当内容没有超过这个最小高就生效这个最小高 超过 是超过的高 */
+			min-height: 100.1%;
+		}
+		.mui-row{
+			/* mui-row里面的都是col列 这些列 是相对的定位在标准流 受到padding的影响 */
+			padding: 0.1rem;
+			a{
+				display: block;
+				background-color: #fff;
+				img{
+					width: 100%;
+				}
+				text-align: center;
+			}
+		}
+			/* a{
+				width: 33.33%;
+				margin-bottom: 10px;
+				img{
+					width: 100%;
+				}
+			} */
+	}
+}

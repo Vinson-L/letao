@@ -1,0 +1,1 @@
+document.body.innerHTML = '<img src="./a.gif" />';

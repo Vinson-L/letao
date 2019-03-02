@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>后台首页</title>
+    <!-- 1. 引入bootstrap的css -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <!-- 2. 引入字体图标的css -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <!-- 3. 引入首页的less -->
+    <link rel="stylesheet/less" href="less/index.less">
+    <!-- 4. 引入less.js编译器文件 -->
+    <script src="lib/less/less.js"></script>
+</head>
+
+<body>
+    <main id="main">
+        <!-- 左侧菜单 -->
+        <section class="left">
+            <div class="logo">
+                <img src="images/25.png" alt="">
+                <p>王凯旋</p>
+            </div>
+            <div class="list-group">
+                <a href="index.html" class="list-group-item active">
+                用户管理
+                </a>
+                <!-- 通过data-toggle 和 data-target来和后面的一级二级分类关联 点击切换
+                使用collapse插件 -->
+                <a href="#" class="list-group-item" data-toggle="collapse" data-target="#categoryManage">分类管理
+                    
+                </a>
+                <div class="collapse list-group" id="categoryManage">
+                    <a href="categoryFirst.html" class="list-group-item">一级分类</a>
+                    <a href="categorySecond.html" class="list-group-item">二级分类</a>
+                </div>
+                <a href="#" class="list-group-item">商品管理</a>
+            </div>
+        </section>
+        <!-- 右侧表格信息 -->
+        <section class="right">
+            <div class="title">
+                <a href="#" class="fa fa-navicon">
+                </a>
+                <a href="#" class="fa fa-sign-out">
+                    退出
+                </a>
+            </div>
+            <div class="content">
+                <table class="table table-bordered table-striped table-hover table-user">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>用户名</th>
+                            <th>电话</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>                        
+                    </tbody>
+                </table>
+                <!-- 分页插件的容器 -->
+                <ul id="page"></ul>
+            </div>
+        </section>
+    </main>
+    <!-- 创建用户信息的表格模板 -->
+    <script id="userInfoTpl" type="text/html">
+        {{each rows value}}
+            <tr>
+                <th scope="row">{{value.id}}</th>
+                <td>{{value.username}}</td>
+                <td>{{value.mobile}}</td>
+                <!-- 如果isDelete == 0 表示已禁用的  按钮变成绿色的启用按钮
+                如果不等于0 表示已启用 按钮变成红色 禁用 -->
+                {{if value.isDelete == 0}}
+                    <td>已禁用</td>
+                    <td><button type="button" class="btn btn-success btn-option" data-is-delete="{{value.isDelete}}" data-id="{{value.id}}">启用</button></td>
+                {{else}}
+                    <td>已启用</td>
+                    <td><button type="button" class="btn btn-danger btn-option" data-is-delete="{{value.isDelete}}" data-id="{{value.id}}">禁用</button></td>
+                {{/if}}
+            </tr>   
+        {{/each}}
+    </script>
+    <!-- 5. 引入jquery 因为bootstrap依赖jquery 在PC要兼容各种浏览器需要jqeury -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 6. 引入bootstrap的js -->
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 7. 引入bootstrap的分页插件 -->
+    <script src="lib/bootstrap/js/bootstrap-paginator.js"></script>
+    <!-- 7. 引入模板引擎  注意引入template-web的文件 最新模板引擎-->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 8. 引入首页的js文件 -->
+    <script src="js/index.js"></script>
+</body>
+
+</html>

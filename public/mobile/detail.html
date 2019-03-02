@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 1. 添加视口 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>商品详情</title>
+    <!-- 2. 引包 -->
+    <!-- 1. 引入mui的CSS -->
+    <link rel="stylesheet" href="lib/mui/css/mui.css">
+    <!-- 2. 引入字体图标的CSS -->
+    <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
+    <!-- 3. 引入详情的less文件 -->
+    <link rel="stylesheet/less" href="less/detail.less">
+    <!-- 4. 引入less.js编译器文件 -->
+    <script src="lib/less/less.js"></script>
+    <!-- 5. 在页面前引入rem.js 等页面加载出来之前生效样式马上执行 -->
+    <script src="js/rem.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <!-- javascript:history.back(); 使用历史记录的返回上一页的函数 -->
+        <a href="javascript:history.back();" class="fa fa-arrow-left"></a>
+        <h4>商品详情</h4>
+        <a href="index.html" class="fa fa-home"></a>
+    </header>
+    <!-- 主体区域 -->
+    <main id="main">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <!-- 轮播图区域 -->
+                <section id="slide">
+                    <!-- 轮播图大容器 类似于swiper-container -->
+                    <div class="mui-slider">
+                        <!-- mui的所有图片容器 类似于swiper-wrapper-->
+                        <!-- <div class="mui-slider-group mui-slider-loop"> -->
+                        <!--支持循环，需要重复图片节点 最后一张-->
+                        <!-- <div class="mui-slider-item mui-slider-item-duplicate">
+                                <a href="#"><img src="images/banner2.png" /></a>
+                            </div>
+                            <div class="mui-slider-item">
+                                <a href="#"><img src="images/banner1.png" /></a>
+                            </div>
+                            <div class="mui-slider-item">
+                                <a href="#"><img src="images/banner2.png" /></a>
+                            </div> -->
+                        <!--支持循环，需要重复图片节点 第一张-->
+                        <!-- <div class="mui-slider-item mui-slider-item-duplicate">
+                                <a href="#"><img src="images/banner1.png" /></a>
+                            </div>
+                        </div> -->
+                        <!-- 小圆点 swiper-pagination-->
+                        <!--  <div class="mui-slider-indicator">
+                            <div class="mui-indicator mui-active"></div>
+                            <div class="mui-indicator"></div>
+                        </div> -->
+                    </div>
+                </section>
+                <!-- 商品的信息 -->
+                <section id="productInfo">
+                </section>
+            </div>
+        </div>
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <!-- .mui-col-xs-3*4>a[href="#"]>i.fa.fa-home+span{首页} -->
+            <div class="mui-col-xs-2">
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+            </div>
+            <div class="mui-col-xs-5">
+                <button type="button" class="mui-btn mui-btn-danger btn-add-cart">加入购物车</button>
+            </div>
+            <div class="mui-col-xs-5">
+                <button type="button" class="mui-btn mui-btn-warning btn-buy">立即购买</button>
+            </div>
+        </div>
+    </footer>
+    <!-- 遮罩层 -->
+    <div class="mask">
+        <!-- 加载中效果的结构 -->
+        <div class="spinner">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+    <script id="slideTpl" type="text/html">
+        <!-- mui的所有图片容器 类似于swiper-wrapper-->
+        <div class="mui-slider-group mui-slider-loop">
+            <!--支持循环，需要重复图片节点 最后一张-->
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <!-- 取pic数组中的最后一个 -->
+                <a href="#"><img src="{{pic[pic.length-1].picAddr}}" /></a>
+            </div>
+            {{each pic value}}
+            <div class="mui-slider-item">
+                <a href="#"><img src="{{value.picAddr}}" /></a>
+            </div>
+            {{/each}}
+            <!--支持循环，需要重复图片节点 第一张-->
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <!-- 取pic数组中的最后一个 -->
+                <a href="#"><img src="{{pic[0].picAddr}}" /></a>
+            </div>
+        </div>
+        <!-- 小圆点 swiper-pagination-->
+        <div class="mui-slider-indicator">
+            {{each pic value index}}
+            <!-- 判断如果索引为0表示第一张 就添加mui-active 否则为空 -->
+            <div class="mui-indicator {{index == 0 ? 'mui-active' : ''}}"></div>
+            {{/each}}
+        </div>
+    </script>
+    <script id="productInfoTpl" type="text/html">
+        <div class="product-name">
+            名称： <span>
+                    {{proName}}
+                </span>
+        </div>
+        <div class="product-price">
+            价格：<span>¥{{price}}</span>
+            <del>¥{{oldPrice}}</del>
+        </div>
+        <div class="product-size">
+            尺码： {{each size value}}
+            <button type="button" class="mui-btn btn-size {{value == prevSize ? 'mui-btn-warning' : '' }}" data-size="{{value}}">{{value}}</button>
+            {{/each}}
+        </div>
+        <div class="product-num">
+            数量：
+            <div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='{{num}}'>
+                <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                <input class="mui-numbox-input" type="number" />
+                <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+            </div> 剩余：<span>{{num}}</span>件
+        </div>
+    </script>
+    <!-- 1. 引入mui的JS -->
+    <script src="lib/mui/js/mui.js"></script>
+    <!-- 2. 引入模板引擎的 注意引入template-web.js 最新版最简洁的  -->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 3. 引入zepto的JS ajax dom操作的Js库 -->
+    <script src="lib/zepto/zepto.min.js"></script>
+    <!-- 4. 引入商品详情的JS文件 -->
+    <!-- <script src="js/detail标准版.js"></script> -->
+    <script src="js/detail.js"></script>
+</body>
+
+</html>

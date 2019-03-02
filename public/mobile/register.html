@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 1. 添加视口 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>注册页面</title>
+    <!-- 2. 引包 -->
+    <!-- 1. 引入mui的CSS -->
+    <link rel="stylesheet" href="lib/mui/css/mui.css">
+    <!-- 2. 引入字体图标的CSS -->
+    <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
+    <!-- 3. 引入登录的less文件 -->
+    <link rel="stylesheet/less" href="less/login.less">
+    <!-- 4. 引入less.js编译器文件 -->
+    <script src="lib/less/less.js"></script>
+    <!-- 5. 在页面前引入rem.js 等页面加载出来之前生效样式马上执行 -->
+    <script src="js/rem.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <!-- javascript:history.back(); 使用历史记录的返回上一页的函数 -->
+        <a href="javascript:history.back();" class="fa fa-arrow-left"></a>
+        <h4>注册中心</h4>
+        <a href="index.html" class="fa fa-home"></a>
+    </header>
+    <!-- 主体区域 -->
+    <main id="main">
+        <form class="mui-input-group">
+            <div class="mui-input-row">
+                <label>手机号</label>
+                <!-- 手机号有专门输入框tel 只能输入手机号里面的有的数字
+                调出电话键盘 -->
+                <input type="tel" class="mui-input-clear mobile" placeholder="请输入手机号" value="13333333333">
+            </div>
+            <div class="mui-input-row">
+                <label>用户名</label>
+                <input type="text" class="mui-input-clear username" placeholder="请输入用户名">
+            </div>
+            <div class="mui-input-row">
+                <label>密码</label>
+                <input type="password" class="mui-input-password password1" placeholder="请输入密码">
+            </div>
+            <div class="mui-input-row">
+                <label>确认密码</label>
+                <input type="password" class="mui-input-password password2" placeholder="请输入确认密码">
+            </div>
+            <div class="mui-input-row">
+                <label>验证码</label>
+                <input type="text" class="mui-input-clear input-vcode" placeholder="请输入验证码">
+                <button type="button" class="mui-btn mui-btn-primary btn-get-vcode">获取验证码</button>
+            </div>            
+            <div class="mui-button-row">
+                <button type="button" class="mui-btn mui-btn-primary btn-register-confirm">注册</button>
+            </div>
+        </form>
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <!-- .mui-col-xs-3*4>a[href="#"]>i.fa.fa-home+span{首页} -->
+            <div class="mui-col-xs-3 ">
+                <a href="index.html"><i class="fa fa-home"></i><span>首页</span></a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="category.html" class="active"><i class="fa fa-bars"></i><span>分类</span></a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i><span>购物车</span></a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="user.html"><i class="fa fa-user"></i><span>个人中心</span></a>
+            </div>
+        </div>
+    </footer>
+    <!-- 1. 引入mui的JS -->
+    <script src="lib/mui/js/mui.js"></script>
+    <!-- 2. 引入模板引擎的 注意引入template-web.js 最新版最简洁的  -->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 3. 引入zepto的JS ajax dom操作的Js库 -->
+    <script src="lib/zepto/zepto.min.js"></script>
+    <!-- 4. 引入注册的JS文件 -->
+    <script src="js/register.js"></script>
+</body>
+
+</html>

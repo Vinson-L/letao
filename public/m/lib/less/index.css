@@ -1,0 +1,117 @@
+html {
+  font-size: 26.66667vw;
+}
+body {
+  font-size: .14rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+img {
+  vertical-align: middle;
+}
+#header {
+  display: flex;
+  background-color: #006699;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+#header .left {
+  width: .45rem;
+  height: .45rem;
+}
+#header .center {
+  flex: 1;
+  text-align: center;
+}
+#header .center h4 {
+  line-height: .45rem;
+  font-weight: normal;
+}
+#header .right {
+  width: .45rem;
+  height: .45rem;
+  text-align: center;
+  line-height: .45rem;
+}
+/* 中间的主体区域的样式 这个每个页面都要放到公共样式中 */
+#main {
+  padding: 45px 0;
+  height: 100vh;
+  position: relative;
+}
+#main .mui-scroll-wrapper {
+  position: relative;
+  height: 100%;
+}
+#main .swiper-container {
+  height: 100%;
+}
+#main .swiper-container .swiper-slide {
+  height: auto;
+}
+/* 底部区域 */
+#footer {
+  background-color: #006699;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+#footer a {
+  display: flex;
+  height: .45rem;
+  color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#footer a span {
+  line-height: 1;
+}
+#footer a.active {
+  color: orange;
+}
+/* 主体区域 */
+#main {
+  /* 轮播图区域 */
+  /* 导航区域 */
+  /* 广告区域 */
+  /* 品牌专区 运动专区 女士 男士专区 使用并集选择器*/
+}
+#main a {
+  display: block;
+}
+#main a img {
+  width: 100%;
+}
+#main .nav {
+  padding: .1rem;
+}
+#main .banner {
+  padding: 0 .1rem;
+}
+#main .banner .left a {
+  display: flex;
+}
+#main .banner .left a img {
+  width: 50%;
+  height: 1.2rem;
+}
+#main .banner .right a img {
+  height: 2.4rem;
+}
+#main .brand,
+#main .sport,
+#main .women,
+#main .man {
+  padding: .1rem;
+}

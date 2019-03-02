@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 1. 添加视口 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>搜索页面</title>
+    <!-- 2. 引包 -->
+    <!-- 1. 引入mui的CSS -->
+    <link rel="stylesheet" href="lib/mui/css/mui.css">
+    <!-- 2. 引入字体图标的CSS -->
+    <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
+    <!-- 3. 引入搜索的less文件 -->
+    <link rel="stylesheet/less" href="less/search.less">
+    <!-- 4. 引入less.js编译器文件 -->
+    <script src="lib/less/less.js"></script>
+    <!-- 5. 在页面前引入rem.js 等页面加载出来之前生效样式马上执行 -->
+    <script src="js/rem.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <!-- javascript:history.back(); 使用历史记录的返回上一页的函数 -->
+        <a href="javascript:history.back();" class="fa fa-arrow-left"></a>
+        <h4>搜索中心</h4>
+    </header>
+    <!-- 主体区域 -->
+    <main id="main">
+        <!-- 搜索表单 -->
+        <div class="search-form">
+            <form action="#">
+                <input type="search" placeholder="请输入要搜索商品" class="input-search">
+                <button type="button" class="mui-btn mui-btn-primary btn-search">搜索</button>
+            </form>
+        </div>
+        <!-- 搜索历史 -->
+        <div class="search-history">
+            <!-- 使用卡片布局 -->
+            <div class="mui-card">
+                <!-- 卡片的头部 自带左右对齐-->
+                <div class="mui-card-header">
+                        <span>搜索历史</span>
+                        <a href="#" class="fa fa-trash btn-clear">清空记录</a>
+                </div>
+                <!-- 卡片的内容 -->
+                <div class="mui-card-content">
+                    <ul class="mui-table-view">
+                        <li class="mui-table-view-cell">Item 1
+                            <span class="fa fa-close mui-badge"></span>
+                        </li>
+                        <li class="mui-table-view-cell">Item 2
+                            <span class="fa fa-close mui-badge"></span>
+                        </li>
+                        <li class="mui-table-view-cell">Item 3
+                            <span class="fa fa-close mui-badge"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <!-- .mui-col-xs-3*4>a[href="#"]>i.fa.fa-home+span{首页} -->
+            <div class="mui-col-xs-3 ">
+                <a href="index.html"><i class="fa fa-home"></i><span>首页</span></a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="category.html" class="active"><i class="fa fa-bars"></i><span>分类</span></a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i><span>购物车</span></a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="user.html"><i class="fa fa-user"></i><span>个人中心</span></a>
+            </div>
+        </div>
+    </footer>
+    <!-- 创建历史记录列表的模板 -->
+    <script id="historyListTpl" type="text/html">
+        
+        {{if rows.length > 0}} 
+            {{each rows value index}}
+            <li class="mui-table-view-cell">
+                {{value}}
+                <!-- 把当前值的索引绑定在旁边x元素的data-index属性 后面删除可以获取当前点击x的索引 -->
+                <span class="fa fa-close mui-badge btn-delete" data-index="{{index}}"></span>
+            </li>
+            {{/each}} 
+        {{else}}
+            <li class="mui-table-view-cell">再下实显示不出更多记录了！</li>
+        {{/if}}
+    </script>
+    <!-- 1. 引入mui的JS -->
+    <script src="lib/mui/js/mui.js"></script>
+    <!-- 2. 引入模板引擎的 注意引入template-web.js 最新版最简洁的  -->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 3. 引入zepto的JS ajax dom操作的Js库 -->
+    <script src="lib/zepto/zepto.min.js"></script>
+    <!-- 4. 引入搜索的JS文件 -->
+    <script src="js/search.js"></script>
+</body>
+
+</html>

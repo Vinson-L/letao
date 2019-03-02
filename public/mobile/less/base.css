@@ -1,0 +1,8 @@
+/* 1. 设置根元素的字体大小 让页面先以375标准屏幕来写代码 因为MUI已经是rem代码 参照的1rem=100px; */
+html {
+  font-size: 100px;
+}
+body {
+  font-size: 0.14rem;
+  font-size: .14rem;
+}

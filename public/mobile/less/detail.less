@@ -1,0 +1,52 @@
+@import 'base.less';
+/* 主体样式 */
+#main{
+	/* 商品信息的样式 */
+	#productInfo{
+		> div{
+			padding: 0.1rem;
+			border-bottom: 0.01rem solid @border-color;			
+			/* 注意已经div了 写交集选择器 不能漏了& 不然就是后代了 */
+			&.product-name {
+				span{
+					font-weight: 600;
+				}
+			}
+			&.product-price{
+				span{
+					color:red;
+					font-weight: 600;
+				}
+				del{
+					color:#888;
+				}
+			}
+			&.product-size{
+				/* 因为按钮有5px margin-bottom 所以单独让 当前商品大小盒子 底部padding变成5px 加起来刚好是10px */
+				padding: 0.1rem 0.1rem 0.05rem;
+				>button{
+					margin-bottom: 0.05rem;
+					/* 注意按钮的对齐方式默认是top  文字和按钮顶部对齐 
+					把按钮的对齐方式设置为 middle 中线对齐和文字就居中对齐了 */
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+}
+/* 对详情页面的底部样式单独覆盖 */
+#footer{
+	background-color: @border-color;
+	.mui-row{
+		>div{
+			padding: 0.05rem;
+			.fa-shopping-cart{
+				font-size: 0.2rem;
+				color:#333;
+			}
+			button{
+				width: 100%;
+			}
+		}
+	}
+}

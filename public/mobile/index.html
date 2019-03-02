@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 1. 添加视口 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>完整版主页</title>
+    <!-- 2. 引包 -->
+    <!-- 1. 引入mui的CSS -->
+    <link rel="stylesheet" href="lib/mui/css/mui.css">
+    <!-- 2. 引入字体图标的CSS -->
+    <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
+    <!-- 3. 引入主页的less文件 -->
+    <link rel="stylesheet/less" href="less/index.less">
+    <!-- 4. 引入less.js编译器文件 -->
+    <script src="lib/less/less.js"></script>
+    <!-- 5. 在页面前引入rem.js 等页面加载出来之前生效样式马上执行 -->
+    <script src="js/rem.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <h4>完整乐淘主页</h4>
+        <a href="search.html" class="fa fa-search"></a>
+    </header>
+    <!-- 主体区域 -->
+    <main id="main">
+        <!-- 区域滚动的父容器 高度是固定的-->
+        <div class="mui-scroll-wrapper">
+            <!-- 区域滚动的子容器 高度是由内容撑开的 -->
+            <div class="mui-scroll">
+                <!--这里放置真实显示的DOM内容-->
+                <!-- 轮播图区域 -->
+                <section id="slide">
+                    <!-- 轮播图大容器 类似于swiper-container -->
+                    <div class="mui-slider">
+                        <!-- mui的所有图片容器 类似于swiper-wrapper-->
+                        <div class="mui-slider-group mui-slider-loop">
+                            <!--支持循环，需要重复图片节点 最后一张-->
+                            <div class="mui-slider-item mui-slider-item-duplicate">
+                                <a href="#"><img src="images/banner6.png" /></a>
+                            </div>
+                            <div class="mui-slider-item">
+                                <a href="#"><img src="images/banner1.png" /></a>
+                            </div>
+                            <div class="mui-slider-item">
+                                <a href="#"><img src="images/banner2.png" /></a>
+                            </div>
+                            <div class="mui-slider-item">
+                                <a href="#"><img src="images/banner3.png" /></a>
+                            </div>
+                            <div class="mui-slider-item">
+                                <a href="#"><img src="images/banner4.png" /></a>
+                            </div>
+                            <div class="mui-slider-item">
+                                <a href="#"><img src="images/banner5.png" /></a>
+                            </div>
+                            <div class="mui-slider-item">
+                                <a href="#"><img src="images/banner6.png" /></a>
+                            </div>
+                            <!--支持循环，需要重复图片节点 第一张-->
+                            <div class="mui-slider-item mui-slider-item-duplicate">
+                                <a href="#"><img src="images/banner1.png" /></a>
+                            </div>
+                        </div>
+                        <!-- 小圆点 swiper-pagination-->
+                        <div class="mui-slider-indicator">
+                            <div class="mui-indicator mui-active"></div>
+                            <div class="mui-indicator"></div>
+                            <div class="mui-indicator"></div>
+                            <div class="mui-indicator"></div>
+                            <div class="mui-indicator"></div>
+                            <div class="mui-indicator"></div>
+                        </div>
+                    </div>
+                </section>
+                <!-- 导航条区域 -->
+                <nav id="nav">
+                    <div class="mui-row">
+                        <!-- div.mui-col-xs-4*6>a[href="#"]>img[src="images/nav$.png"] -->
+                        <div class="mui-col-xs-4">
+                            <a href="#"><img src="images/nav1.png" alt=""></a>
+                        </div>
+                        <div class="mui-col-xs-4">
+                            <a href="#"><img src="images/nav2.png" alt=""></a>
+                        </div>
+                        <div class="mui-col-xs-4">
+                            <a href="#"><img src="images/nav3.png" alt=""></a>
+                        </div>
+                        <div class="mui-col-xs-4">
+                            <a href="#"><img src="images/nav4.png" alt=""></a>
+                        </div>
+                        <div class="mui-col-xs-4">
+                            <a href="#"><img src="images/nav5.png" alt=""></a>
+                        </div>
+                        <div class="mui-col-xs-4">
+                            <a href="#"><img src="images/nav6.png" alt=""></a>
+                        </div>
+                    </div>
+                </nav>
+                <!-- 广告区域 -->
+                <section id="banner">
+                    <div class="mui-row">
+                        <div class="mui-col-xs-8 left">
+                            <a href="#">
+                                <img src="images/active1.png" alt="">
+                                <img src="images/active2.png" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="images/active4.png" alt="">
+                                <img src="images/active5.png" alt="">
+                            </a>
+                        </div>
+                        <div class="mui-col-xs-4 right">
+                            <a href="#">
+                                <img src="images/active3.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <!-- 品牌专区 -->
+                <section id="brand">
+                    <div class="title">
+                        <a href="#">
+                            <img src="images/title0.png" alt="">
+                        </a>
+                    </div>
+                    <div class="content">
+                        <div class="mui-row">
+                            <!-- .mui-col-xs-3*8>a[href="#"]>img[src="images/brand$.png"] -->
+                            <div class="mui-col-xs-3">
+                                <a href="#"><img src="images/brand1.png" alt=""></a>
+                            </div>
+                            <div class="mui-col-xs-3">
+                                <a href="#"><img src="images/brand2.png" alt=""></a>
+                            </div>
+                            <div class="mui-col-xs-3">
+                                <a href="#"><img src="images/brand3.png" alt=""></a>
+                            </div>
+                            <div class="mui-col-xs-3">
+                                <a href="#"><img src="images/brand4.png" alt=""></a>
+                            </div>
+                            <div class="mui-col-xs-3">
+                                <a href="#"><img src="images/brand5.png" alt=""></a>
+                            </div>
+                            <div class="mui-col-xs-3">
+                                <a href="#"><img src="images/brand6.png" alt=""></a>
+                            </div>
+                            <div class="mui-col-xs-3">
+                                <a href="#"><img src="images/brand7.png" alt=""></a>
+                            </div>
+                            <div class="mui-col-xs-3">
+                                <a href="#"><img src="images/brand8.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- 运动专区 -->
+                <section id="sport">
+                    <div class="title">
+                        <a href="#">
+                            <img src="images/title1.png" alt="">
+                        </a>
+                    </div>
+                    <div class="content">
+                        <div class="mui-row product-box">
+                            <div class="mui-col-xs-6 left">
+                                <a href="#">
+                                    <img src="images/product.jpg" alt="">
+                                    <p class="product-name">adidas阿迪达斯 男式 场下休闲篮球鞋S83700</p>
+                                    <p class="product-price">
+                                        <span>￥566.00</span>
+                                        <del>￥888.00</del>
+                                    </p>
+                                    <button type="button" class="mui-btn mui-btn-primary product-buy">立即购买</button>
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6 right">
+                                <a href="#">
+                                    <img src="images/product.jpg" alt="">
+                                    <p class="product-name">adidas阿迪达斯 男式 场下休闲篮球鞋S83700</p>
+                                    <p class="product-price">
+                                        <span>￥566.00</span>
+                                        <del>￥888.00</del>
+                                    </p>
+                                    <button type="button" class="mui-btn mui-btn-primary product-buy">立即购买</button>
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- 女士专区 -->
+                <section id="women">
+                    <div class="title">
+                        <a href="#">
+                            <img src="images/title2.png" alt="">
+                        </a>
+                    </div>
+                    <div class="content">
+                        <div class="mui-row">
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- 男士专区 -->
+                <section id="men">
+                    <div class="title">
+                        <a href="#">
+                            <img src="images/title3.png" alt="">
+                        </a>
+                    </div>
+                    <div class="content">
+                        <div class="mui-row">
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/f15da1f4389c4f1bbed4d2ca639f9967.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <a href="#">
+                                    <img src="http://m.img.letao.com:80/picture//website/ff80808157ffc1c2015800534d4c0000/2017/22066853decf491c8aa353bbea5b9f3d.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <!-- .mui-col-xs-3*4>a[href="#"]>i.fa.fa-home+span{首页} -->
+            <div class="mui-col-xs-3 ">
+                <a href="index.html" class="active"><i class="fa fa-home"></i><span>首页</span></a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="category.html"><i class="fa fa-bars"></i><span>分类</span></a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i><span>购物车</span></a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="user.html"><i class="fa fa-user"></i><span>个人中心</span></a>
+            </div>
+        </div>
+    </footer>
+    <!-- 1. 引入mui的JS -->
+    <script src="lib/mui/js/mui.js"></script>
+    <!-- 2. 引入模板引擎的 注意引入template-web.js 最新版最简洁的  -->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 3. 引入zepto的JS ajax dom操作的Js库 -->
+    <script src="lib/zepto/zepto.min.js"></script>
+    <!-- 4. 引入自己的JS文件 -->
+    <script src="js/index.js"></script>
+</body>
+
+</html>

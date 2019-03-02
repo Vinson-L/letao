@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>员工登录</title>
+    <!-- 1. 引入bootstrap的css -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <!-- 2. 引入字体图标的css -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <!-- 3. 引入登录页面Less -->
+    <link rel="stylesheet/less" href="less/login.less">
+    <!-- 4. 引入less.js编译器文件 -->
+    <script src="lib/less/less.js"></script>
+</head>
+
+<body>
+    <form class="form-horizontal">
+    	  <img src="images/25.png" class="logo" alt="">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control username" id="inputEmail3" placeholder="请输入用户名">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control password" id="inputPassword3" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button type="button" class="btn btn-default btn-login">登录</button>
+            </div>
+        </div>
+    </form>
+    <!-- 5. 引入jquery 因为bootstrap依赖jquery 在PC要兼容各种浏览器需要jqeury -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 6. 引入bootstrap的js -->
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 7. 引入模板引擎  注意引入template-web的文件 最新模板引擎-->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 8. 引入登录的js文件 -->
+    <script src="js/login.js"></script>
+</body>
+
+</html>

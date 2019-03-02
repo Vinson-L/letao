@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>一级分类</title>
+    <!-- 1. 引入bootstrap的css -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <!-- 2. 引入字体图标的css -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <!-- 3. 引入首页的less -->
+    <link rel="stylesheet/less" href="less/index.less">
+    <!-- 4. 引入less.js编译器文件 -->
+    <script src="lib/less/less.js"></script>
+</head>
+
+<body>
+    <main id="main">
+        <!-- 左侧菜单 -->
+        <section class="left">
+            <div class="logo">
+                <img src="images/25.png" alt="">
+                <p>王凯旋</p>
+            </div>
+            <div class="list-group">
+                <a href="index.html" class="list-group-item ">
+                用户管理
+                </a>
+                <!-- 通过data-toggle 和 data-target来和后面的一级二级分类关联 点击切换
+                使用collapse插件 -->
+                <a href="#" class="list-group-item active" data-toggle="collapse" data-target="#categoryManage">分类管理
+                    
+                </a>
+                <!-- collapse是隐藏 收起来  collapse 带 in默认显示 展开的 -->
+                <div class="collapse in list-group" id="categoryManage">
+                    <a href="categoryFirst.html" class="list-group-item">一级分类</a>
+                    <a href="categorySecond.html" class="list-group-item">二级分类</a>
+                </div>
+                <a href="#" class="list-group-item">商品管理</a>
+            </div>
+        </section>
+        <!-- 右侧表格信息 -->
+        <section class="right">
+            <div class="title">
+                <a href="#" class="fa fa-navicon">
+                </a>
+                <a href="#" class="fa fa-sign-out">
+                    退出
+                </a>
+            </div>
+            <div class="content">
+                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">添加分类</button>
+                <table class="table table-bordered table-striped table-hover table-category">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>分类编号</th>
+                            <th>分类名称</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                <input type="checkbox">
+                            </th>
+                            <td>5</td>
+                            <td>户外管</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- 分页插件的容器 -->
+                <ul id="page"></ul>
+            </div>
+        </section>
+    </main>
+    <!-- 模态框 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group clearfix">
+                        <label for="inputEmail3" class="control-label">分类名称：</label>
+                        <div class="category-form">
+                            <input type="text" class="form-control input-category" id="inputEmail3" placeholder="请输入分类名称">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <!-- data-dismiss="modal" 添加属性可以关闭模态框 -->
+                    <button type="button" class="btn btn-primary btn-save" data-dismiss="modal">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="categoryFirstTpl" type="text/html">
+        {{each rows value}}
+        <tr>
+            <th scope="row">
+                <input type="checkbox">
+            </th>
+            <td>{{value.id}}</td>
+            <td>{{value.categoryName}}</td>
+        </tr>
+        {{/each}}
+    </script>
+    <!-- 5. 引入jquery 因为bootstrap依赖jquery 在PC要兼容各种浏览器需要jqeury -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 6. 引入bootstrap的js -->
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 7. 引入bootstrap的分页插件 -->
+    <script src="lib/bootstrap/js/bootstrap-paginator.js"></script>
+    <!-- 7. 引入模板引擎  注意引入template-web的文件 最新模板引擎-->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 8. 引入一级分类的js文件 -->
+    <script src="js/categoryFirst.js"></script>
+</body>
+
+</html>

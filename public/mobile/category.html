@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 1. 添加视口 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>分类页面</title>
+    <!-- 2. 引包 -->
+    <!-- 1. 引入mui的CSS -->
+    <link rel="stylesheet" href="lib/mui/css/mui.css">
+    <!-- 2. 引入字体图标的CSS -->
+    <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
+    <!-- 3. 引入分类的less文件 -->
+    <link rel="stylesheet/less" href="less/category.less">
+    <!-- 4. 引入less.js编译器文件 -->
+    <script src="lib/less/less.js"></script>
+    <!-- 5. 在页面前引入rem.js 等页面加载出来之前生效样式马上执行 -->
+    <script src="js/rem.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <!-- javascript:history.back(); 使用历史记录的返回上一页的函数 -->
+        <a href="javascript:history.back();" class="fa fa-arrow-left"></a>
+        <form action="#">
+            <!-- 让键盘右下角的变成搜索 -->
+            <input type="search" placeholder="请输入要搜索的商品">
+        </form>
+        <a href="search.html" class="fa fa-search"></a>
+    </header>
+    <!-- 主体区域 -->
+    <main id="main">
+        <div class="category-left">
+            <!-- 区域滚动的父容器 -->
+            <div class="mui-scroll-wrapper">
+                <!-- 区域滚动的子容器 -->
+                <div class="mui-scroll">
+                    <!--这里放置真实显示的DOM内容-->
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="category-right">
+            <!-- 区域滚动的父容器 -->
+            <div class="mui-scroll-wrapper">
+                <!-- 区域滚动的子容器 -->
+                <div class="mui-scroll">
+                    <!--这里放置真实显示的DOM内容-->
+                    <div class="mui-row">
+                        <!-- 判断当前的rows数组的长度如大于0 表示有数据就要遍历 否则就不遍历显示没有数据 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <!-- .mui-col-xs-3*4>a[href="#"]>i.fa.fa-home+span{首页} -->
+            <div class="mui-col-xs-3 ">
+                <a href="index.html"><i class="fa fa-home"></i><span>首页</span></a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="category.html" class="active"><i class="fa fa-bars"></i><span>分类</span></a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i><span>购物车</span></a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="user.html"><i class="fa fa-user"></i><span>个人中心</span></a>
+            </div>
+        </div>
+    </footer>
+    <!-- 遮罩层 -->
+    <div class="mask">
+        <!-- 加载中效果的结构 -->
+        <div class="spinner">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 创建一级分类的模板 模板id一般带一个后缀tpl tmp等表示是一个模板id-->
+    <script id="topCategoryTpl" type="text/html">
+        <!-- for(var i = 0 ; i < list[i].length;i++){
+            list[i]
+        }
+        模板里面的each 遍历数组 数组名叫做什么 就遍历什么
+        现在后台返回的数据已经是一个数组 而且数组的名字叫rows 
+        所以each rows -->
+        <!-- rows是对象（后台返回的data对象）里面的属性rows 模板里面 都是直接使用对象里面的属性 -->
+        {{each rows value index}}
+        <!-- {{index == 0 ? 'active' : ''}} 如果索引为0 就设置active类名 -->
+        <!-- 点击的时候需要拿到当前的点击a的data-id属性的值 当有些数据需要在JS去获取的时候 可以在标准中绑定-->
+        <li class="{{index == 0 ? 'active' : ''}}"><a href="#" data-id="{{value.id}}">{{value.categoryName}}</a></li>
+        {{/each}}
+    </script>
+    <script id="secondCategoryTpl" type="text/html">
+        <!-- 判断rows数组的长度 大于0 就进行遍历  小于0就提示没有数据了 -->
+        {{if rows.length > 0}} {{each rows value}}
+        <div class="mui-col-xs-4">
+            <a href="#">
+                <img src="{{value.brandLogo}}" alt="">
+                <p>{{value.brandName}}</p>
+            </a>
+        </div>
+        {{/each}} {{else}}
+        <p>没有品牌了！请购买其他品牌</p>
+        {{/if}}
+    </script>
+    <!-- 1. 引入mui的JS -->
+    <script src="lib/mui/js/mui.js"></script>
+    <!-- 2. 引入模板引擎的 注意引入template-web.js 最新版最简洁的  -->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 3. 引入zepto的JS ajax dom操作的Js库 -->
+    <script src="lib/zepto/zepto.min.js"></script>
+    <!-- 4. 引入分类的JS文件 -->
+    <script src="js/category.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+@import 'base.less';
+
+/* 主体区域 */
+#main {
+    a {
+        display: block;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    /* 轮播图区域 */
+    // .slide {}
+
+    /* 导航区域 */
+    .nav {
+        padding: .1rem;
+    }
+
+    /* 广告区域 */
+    .banner {
+        padding: 0 .1rem;
+
+        .left {
+            a {
+                // 推荐使用flex布局 让每个图片宽度50% flex布局子元素自动转块不会有间隙
+                display: flex;
+
+                img {
+                    width: 50%;
+                    height: 1.2rem;
+                }
+            }
+        }
+
+        .right {
+            a {
+                img {
+
+                    height: 2.4rem;
+                }
+            }
+        }
+    }
+
+    /* 品牌专区 运动专区 女士 男士专区 使用并集选择器*/
+    .brand,
+    .sport,
+    .women,
+    .man {
+        padding: .1rem;
+
+        .title {}
+
+        .content {}
+    }
+}

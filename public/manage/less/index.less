@@ -1,0 +1,105 @@
+html,
+body {
+    height: 100%;
+}
+
+#main {
+    display: flex;
+    height: 100%;
+    .left {
+        width: 200px;
+        height: 100%;
+        background-color: skyblue;
+        .logo {
+            text-align: center;
+            padding: 30px 0;
+            img {
+                width: 120px;
+                border-radius: 50%;
+                border: 10px solid #fff;
+                box-shadow: 0px 0px 5px hotpink;
+            }
+            p {
+                margin-top: 10px;
+            }
+        }
+        .list-group {
+            a {
+                background-color: skyblue;
+                border: 0;
+                &:hover {
+                    background-color: hotpink;
+                }
+                &.active {
+                    background-color: hotpink;
+                    border-color: hotpink;
+                }
+            }
+            .list-group {
+                margin-left: 20px;
+            }
+        }
+    }
+    .right {
+        flex: 1;
+        .title {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            a {
+                font-size: 20px;
+                display: block;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                &:first-child {
+                    background-color: yellowgreen;
+                    color: #fff;
+                    padding: 0px 10px;
+                }
+            }
+        }
+        .content {
+            padding: 20px;
+            background-color: #f5f5f5;
+            .table {
+                background-color: #fff;
+            }
+            td,
+            th {
+                height: 50px;
+                text-align: center;
+                img {
+                    width: 165px;
+                    height: 85px;
+                }
+            }
+        }
+    }
+}
+
+
+/* 模态框的样式 */
+
+.modal {
+    .modal-body {
+        .form-group {
+            width: 100%;
+            display: flex;
+            .control-label {
+                width: 100px;
+                text-align: center;
+                line-height: 40px;
+            }
+            .category-form {
+                flex: 1;
+            }
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            display: block;
+            margin: 0px auto;
+        }
+    }
+}
